@@ -1,0 +1,36 @@
+﻿
+Public Class Employees
+        Public Property ID As Integer '0
+        Public Property EmployeeID As String '1
+        Public Property Fullname As String '2
+        Public Property Salutation As String '3
+        Public Property LastName As String '4
+        Public Property FirstName As String '5
+    Public Property MiddleName As String '6
+    Public Property DepartmentID As String '7
+    Public Property DepartmentCode As String '8
+    Public Property DepartmentDescription As String '9
+    Public Property PositionID As String '10
+    Public Property PositionCode As String  '11
+    Public Property PositionDescription As String '12
+    Public Property Gender As String '13
+    Public Property ProfilePic As Byte '14
+        Public Property Status As String '15
+        Public Property RankID As String '16
+        Public Property RankCode As String '17
+        Public Property RankDescription As String '18
+        Public Property GradeID As String '19
+        Public Property GradeCode As String '20
+        Public Property GradeDescription As String '21
+        Public Property CollegeID As String '22
+        Public Property CollegeCode As String '23
+        Public Property CollegeDescription As String '24
+        Public Property Address As String '25
+        Public Property DesignationID As Integer '26
+        Public Property DesignationCode As String '27
+        Public Property DesignationDescription As String '28
+        Public Property EmployeeTypeID As Integer '29
+        Public Property EmployeeTypeDescription As String '30
+
+    End Class
+
