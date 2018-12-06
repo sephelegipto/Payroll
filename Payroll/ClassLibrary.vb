@@ -55,9 +55,9 @@ Public Class Departments
 End Class
 Public Class Ranks
     Public Property ID As Integer '0
-    Public Property GradeCode As String '1
-    Public Property GradeDescription As String '2
-    Public Property TranchDescription As String '3
+    Public Property TranchDescription As String '2
+    Public Property GradeDescription As String '3
+
     Public Property Step1 As String  '4
     Public Property Step2 As String  '5
     Public Property Step3 As String  '6
@@ -67,7 +67,7 @@ Public Class Ranks
     Public Property Step7 As String  '10
     Public Property Step8 As String  '11
     Public Property TranchID As String  '12
-    Public Property Status As String  '13
+    Public Property SalaryGradeID As String  '13
 
 End Class
 
@@ -89,7 +89,7 @@ Public Class Tranch
     Public Property ID As Integer '0
     Public Property TranchDescription As String '1
     Public Property StatusName As String '2
-    Public Property Status As String '3
+
 End Class
 
 Public Class Rates
@@ -125,6 +125,13 @@ Public Class EmployeeDesignation
 
 End Class
 
+Public Class tSalaryGrade
+
+    Public Property ID As String '1
+    Public Property GradeCode As String '2
+    Public Property GradeDescription As String '3
+
+End Class
 
 Public Class SalaryGrade
 

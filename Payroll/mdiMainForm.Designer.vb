@@ -471,10 +471,10 @@ Partial Class mdiMainForm
         Me.RibbonPanel2.Controls.Add(Me.ribTran2)
         Me.RibbonPanel2.Controls.Add(Me.ribTran1)
         Me.RibbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RibbonPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.RibbonPanel2.Location = New System.Drawing.Point(0, 26)
         Me.RibbonPanel2.Name = "RibbonPanel2"
         Me.RibbonPanel2.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
-        Me.RibbonPanel2.Size = New System.Drawing.Size(1162, 128)
+        Me.RibbonPanel2.Size = New System.Drawing.Size(1162, 102)
         '
         '
         '
@@ -507,7 +507,7 @@ Partial Class mdiMainForm
         Me.ribTran4.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.bmPayPrep, Me.btnPayrollPrefer})
         Me.ribTran4.Location = New System.Drawing.Point(200, 0)
         Me.ribTran4.Name = "ribTran4"
-        Me.ribTran4.Size = New System.Drawing.Size(116, 125)
+        Me.ribTran4.Size = New System.Drawing.Size(116, 99)
         Me.ribTran4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.ribTran4.TabIndex = 21
         Me.ribTran4.Text = "PAYROLL"
@@ -557,7 +557,7 @@ Partial Class mdiMainForm
         Me.ribTran2.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.bmRegInc, Me.bmRegDed})
         Me.ribTran2.Location = New System.Drawing.Point(77, 0)
         Me.ribTran2.Name = "ribTran2"
-        Me.ribTran2.Size = New System.Drawing.Size(123, 125)
+        Me.ribTran2.Size = New System.Drawing.Size(123, 99)
         Me.ribTran2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.ribTran2.TabIndex = 19
         Me.ribTran2.Text = "REGULAR"
@@ -607,7 +607,7 @@ Partial Class mdiMainForm
         Me.ribTran1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.bmEmployees})
         Me.ribTran1.Location = New System.Drawing.Point(3, 0)
         Me.ribTran1.Name = "ribTran1"
-        Me.ribTran1.Size = New System.Drawing.Size(74, 125)
+        Me.ribTran1.Size = New System.Drawing.Size(74, 99)
         Me.ribTran1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.ribTran1.TabIndex = 7
         '

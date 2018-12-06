@@ -201,8 +201,6 @@ Partial Class frmAddEdit1
         Me.LabelX9 = New DevComponents.DotNetBar.LabelX()
         Me.TextBoxX2 = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
-        Me.cmbSTranch = New System.Windows.Forms.ComboBox()
-        Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX20 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX19 = New DevComponents.DotNetBar.LabelX()
         Me.s8 = New DevComponents.DotNetBar.Controls.TextBoxX()
@@ -221,9 +219,13 @@ Partial Class frmAddEdit1
         Me.LabelX12 = New DevComponents.DotNetBar.LabelX()
         Me.s1 = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.LabelX11 = New DevComponents.DotNetBar.LabelX()
-        Me.sDescription = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.sCode = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.SalaryGrade = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.TranchDescription = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.dgvhidden = New System.Windows.Forms.DataGridView()
+        Me.ButtonX2 = New DevComponents.DotNetBar.ButtonX()
+        Me.ButtonX3 = New DevComponents.DotNetBar.ButtonX()
+        Me.TranchID = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.SalaryGradeID = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.panRegDeduction.SuspendLayout()
         Me.panYearlyIncTax.SuspendLayout()
         Me.panRegIncome.SuspendLayout()
@@ -1950,7 +1952,7 @@ Partial Class frmAddEdit1
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel8, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel4})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 567)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1604, 24)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1748, 24)
         Me.StatusStrip1.TabIndex = 50
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -1966,7 +1968,7 @@ Partial Class frmAddEdit1
             Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
             Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(753, 19)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(825, 19)
         Me.ToolStripStatusLabel2.Spring = True
         Me.ToolStripStatusLabel2.Text = "F2 : Save"
         '
@@ -1976,7 +1978,7 @@ Partial Class frmAddEdit1
             Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
             Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(753, 19)
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(825, 19)
         Me.ToolStripStatusLabel4.Spring = True
         Me.ToolStripStatusLabel4.Text = "ESC : Close"
         '
@@ -2714,8 +2716,10 @@ Partial Class frmAddEdit1
         '
         Me.PanelEx3.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx3.Controls.Add(Me.cmbSTranch)
-        Me.PanelEx3.Controls.Add(Me.LabelX10)
+        Me.PanelEx3.Controls.Add(Me.SalaryGradeID)
+        Me.PanelEx3.Controls.Add(Me.TranchID)
+        Me.PanelEx3.Controls.Add(Me.ButtonX3)
+        Me.PanelEx3.Controls.Add(Me.ButtonX2)
         Me.PanelEx3.Controls.Add(Me.LabelX20)
         Me.PanelEx3.Controls.Add(Me.LabelX19)
         Me.PanelEx3.Controls.Add(Me.s8)
@@ -2734,13 +2738,13 @@ Partial Class frmAddEdit1
         Me.PanelEx3.Controls.Add(Me.LabelX12)
         Me.PanelEx3.Controls.Add(Me.s1)
         Me.PanelEx3.Controls.Add(Me.LabelX11)
-        Me.PanelEx3.Controls.Add(Me.sDescription)
-        Me.PanelEx3.Controls.Add(Me.sCode)
+        Me.PanelEx3.Controls.Add(Me.SalaryGrade)
+        Me.PanelEx3.Controls.Add(Me.TranchDescription)
         Me.PanelEx3.Controls.Add(Me.dgvhidden)
         Me.PanelEx3.DisabledBackColor = System.Drawing.Color.Empty
-        Me.PanelEx3.Location = New System.Drawing.Point(1347, 91)
+        Me.PanelEx3.Location = New System.Drawing.Point(1346, 77)
         Me.PanelEx3.Name = "PanelEx3"
-        Me.PanelEx3.Size = New System.Drawing.Size(412, 288)
+        Me.PanelEx3.Size = New System.Drawing.Size(412, 279)
         Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx3.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -2751,27 +2755,6 @@ Partial Class frmAddEdit1
         Me.PanelEx3.TabIndex = 55
         Me.PanelEx3.Visible = False
         '
-        'cmbSTranch
-        '
-        Me.cmbSTranch.FormattingEnabled = True
-        Me.cmbSTranch.Location = New System.Drawing.Point(178, 60)
-        Me.cmbSTranch.Name = "cmbSTranch"
-        Me.cmbSTranch.Size = New System.Drawing.Size(121, 21)
-        Me.cmbSTranch.TabIndex = 10
-        '
-        'LabelX10
-        '
-        Me.LabelX10.AutoSize = True
-        '
-        '
-        '
-        Me.LabelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX10.Location = New System.Drawing.Point(80, 64)
-        Me.LabelX10.Name = "LabelX10"
-        Me.LabelX10.Size = New System.Drawing.Size(95, 15)
-        Me.LabelX10.TabIndex = 9
-        Me.LabelX10.Text = "TranchDescription:"
-        '
         'LabelX20
         '
         Me.LabelX20.AutoSize = True
@@ -2779,7 +2762,7 @@ Partial Class frmAddEdit1
         '
         '
         Me.LabelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX20.Location = New System.Drawing.Point(80, 258)
+        Me.LabelX20.Location = New System.Drawing.Point(80, 233)
         Me.LabelX20.Name = "LabelX20"
         Me.LabelX20.Size = New System.Drawing.Size(37, 15)
         Me.LabelX20.TabIndex = 7
@@ -2792,7 +2775,7 @@ Partial Class frmAddEdit1
         '
         '
         Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX19.Location = New System.Drawing.Point(80, 232)
+        Me.LabelX19.Location = New System.Drawing.Point(80, 207)
         Me.LabelX19.Name = "LabelX19"
         Me.LabelX19.Size = New System.Drawing.Size(37, 15)
         Me.LabelX19.TabIndex = 7
@@ -2808,9 +2791,9 @@ Partial Class frmAddEdit1
         Me.s8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.s8.FocusHighlightEnabled = True
         Me.s8.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.s8.Location = New System.Drawing.Point(178, 257)
+        Me.s8.Location = New System.Drawing.Point(178, 232)
         Me.s8.Name = "s8"
-        Me.s8.Size = New System.Drawing.Size(121, 20)
+        Me.s8.Size = New System.Drawing.Size(145, 20)
         Me.s8.TabIndex = 0
         '
         'LabelX18
@@ -2820,7 +2803,7 @@ Partial Class frmAddEdit1
         '
         '
         Me.LabelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX18.Location = New System.Drawing.Point(80, 207)
+        Me.LabelX18.Location = New System.Drawing.Point(80, 182)
         Me.LabelX18.Name = "LabelX18"
         Me.LabelX18.Size = New System.Drawing.Size(37, 15)
         Me.LabelX18.TabIndex = 7
@@ -2836,9 +2819,9 @@ Partial Class frmAddEdit1
         Me.s7.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.s7.FocusHighlightEnabled = True
         Me.s7.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.s7.Location = New System.Drawing.Point(178, 231)
+        Me.s7.Location = New System.Drawing.Point(178, 206)
         Me.s7.Name = "s7"
-        Me.s7.Size = New System.Drawing.Size(121, 20)
+        Me.s7.Size = New System.Drawing.Size(145, 20)
         Me.s7.TabIndex = 0
         '
         'LabelX17
@@ -2848,7 +2831,7 @@ Partial Class frmAddEdit1
         '
         '
         Me.LabelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX17.Location = New System.Drawing.Point(80, 183)
+        Me.LabelX17.Location = New System.Drawing.Point(80, 158)
         Me.LabelX17.Name = "LabelX17"
         Me.LabelX17.Size = New System.Drawing.Size(37, 15)
         Me.LabelX17.TabIndex = 7
@@ -2864,9 +2847,9 @@ Partial Class frmAddEdit1
         Me.s6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.s6.FocusHighlightEnabled = True
         Me.s6.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.s6.Location = New System.Drawing.Point(178, 206)
+        Me.s6.Location = New System.Drawing.Point(178, 181)
         Me.s6.Name = "s6"
-        Me.s6.Size = New System.Drawing.Size(121, 20)
+        Me.s6.Size = New System.Drawing.Size(145, 20)
         Me.s6.TabIndex = 0
         '
         'LabelX16
@@ -2876,7 +2859,7 @@ Partial Class frmAddEdit1
         '
         '
         Me.LabelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX16.Location = New System.Drawing.Point(80, 158)
+        Me.LabelX16.Location = New System.Drawing.Point(80, 133)
         Me.LabelX16.Name = "LabelX16"
         Me.LabelX16.Size = New System.Drawing.Size(37, 15)
         Me.LabelX16.TabIndex = 7
@@ -2892,9 +2875,9 @@ Partial Class frmAddEdit1
         Me.s5.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.s5.FocusHighlightEnabled = True
         Me.s5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.s5.Location = New System.Drawing.Point(178, 182)
+        Me.s5.Location = New System.Drawing.Point(178, 157)
         Me.s5.Name = "s5"
-        Me.s5.Size = New System.Drawing.Size(121, 20)
+        Me.s5.Size = New System.Drawing.Size(145, 20)
         Me.s5.TabIndex = 0
         '
         'LabelX15
@@ -2904,7 +2887,7 @@ Partial Class frmAddEdit1
         '
         '
         Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX15.Location = New System.Drawing.Point(80, 133)
+        Me.LabelX15.Location = New System.Drawing.Point(80, 108)
         Me.LabelX15.Name = "LabelX15"
         Me.LabelX15.Size = New System.Drawing.Size(37, 15)
         Me.LabelX15.TabIndex = 7
@@ -2920,9 +2903,9 @@ Partial Class frmAddEdit1
         Me.s4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.s4.FocusHighlightEnabled = True
         Me.s4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.s4.Location = New System.Drawing.Point(178, 157)
+        Me.s4.Location = New System.Drawing.Point(178, 132)
         Me.s4.Name = "s4"
-        Me.s4.Size = New System.Drawing.Size(121, 20)
+        Me.s4.Size = New System.Drawing.Size(145, 20)
         Me.s4.TabIndex = 0
         '
         'LabelX14
@@ -2932,7 +2915,7 @@ Partial Class frmAddEdit1
         '
         '
         Me.LabelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX14.Location = New System.Drawing.Point(80, 110)
+        Me.LabelX14.Location = New System.Drawing.Point(80, 85)
         Me.LabelX14.Name = "LabelX14"
         Me.LabelX14.Size = New System.Drawing.Size(37, 15)
         Me.LabelX14.TabIndex = 7
@@ -2948,9 +2931,9 @@ Partial Class frmAddEdit1
         Me.s3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.s3.FocusHighlightEnabled = True
         Me.s3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.s3.Location = New System.Drawing.Point(178, 132)
+        Me.s3.Location = New System.Drawing.Point(178, 107)
         Me.s3.Name = "s3"
-        Me.s3.Size = New System.Drawing.Size(121, 20)
+        Me.s3.Size = New System.Drawing.Size(145, 20)
         Me.s3.TabIndex = 0
         '
         'LabelX13
@@ -2960,7 +2943,7 @@ Partial Class frmAddEdit1
         '
         '
         Me.LabelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX13.Location = New System.Drawing.Point(80, 86)
+        Me.LabelX13.Location = New System.Drawing.Point(80, 61)
         Me.LabelX13.Name = "LabelX13"
         Me.LabelX13.Size = New System.Drawing.Size(37, 15)
         Me.LabelX13.TabIndex = 7
@@ -2976,9 +2959,9 @@ Partial Class frmAddEdit1
         Me.s2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.s2.FocusHighlightEnabled = True
         Me.s2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.s2.Location = New System.Drawing.Point(178, 109)
+        Me.s2.Location = New System.Drawing.Point(178, 84)
         Me.s2.Name = "s2"
-        Me.s2.Size = New System.Drawing.Size(121, 20)
+        Me.s2.Size = New System.Drawing.Size(145, 20)
         Me.s2.TabIndex = 0
         '
         'LabelX12
@@ -2990,9 +2973,9 @@ Partial Class frmAddEdit1
         Me.LabelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX12.Location = New System.Drawing.Point(80, 35)
         Me.LabelX12.Name = "LabelX12"
-        Me.LabelX12.Size = New System.Drawing.Size(91, 15)
+        Me.LabelX12.Size = New System.Drawing.Size(67, 15)
         Me.LabelX12.TabIndex = 7
-        Me.LabelX12.Text = "GradeDescription:"
+        Me.LabelX12.Text = "SalaryGrade:"
         '
         's1
         '
@@ -3004,9 +2987,9 @@ Partial Class frmAddEdit1
         Me.s1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.s1.FocusHighlightEnabled = True
         Me.s1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.s1.Location = New System.Drawing.Point(178, 85)
+        Me.s1.Location = New System.Drawing.Point(178, 60)
         Me.s1.Name = "s1"
-        Me.s1.Size = New System.Drawing.Size(121, 20)
+        Me.s1.Size = New System.Drawing.Size(145, 20)
         Me.s1.TabIndex = 0
         '
         'LabelX11
@@ -3018,54 +3001,108 @@ Partial Class frmAddEdit1
         Me.LabelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX11.Location = New System.Drawing.Point(80, 11)
         Me.LabelX11.Name = "LabelX11"
-        Me.LabelX11.Size = New System.Drawing.Size(62, 15)
+        Me.LabelX11.Size = New System.Drawing.Size(40, 15)
         Me.LabelX11.TabIndex = 7
-        Me.LabelX11.Text = "GradeCode:"
+        Me.LabelX11.Text = "Tranch:"
         '
-        'sDescription
+        'SalaryGrade
         '
-        Me.sDescription.BackColor = System.Drawing.Color.White
-        '
-        '
-        '
-        Me.sDescription.Border.Class = "TextBoxBorder"
-        Me.sDescription.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.sDescription.FocusHighlightEnabled = True
-        Me.sDescription.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.sDescription.Location = New System.Drawing.Point(178, 34)
-        Me.sDescription.Name = "sDescription"
-        Me.sDescription.Size = New System.Drawing.Size(121, 20)
-        Me.sDescription.TabIndex = 0
-        '
-        'sCode
-        '
-        Me.sCode.BackColor = System.Drawing.Color.White
+        Me.SalaryGrade.BackColor = System.Drawing.Color.White
         '
         '
         '
-        Me.sCode.Border.Class = "TextBoxBorder"
-        Me.sCode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.sCode.FocusHighlightEnabled = True
-        Me.sCode.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.sCode.Location = New System.Drawing.Point(178, 10)
-        Me.sCode.Name = "sCode"
-        Me.sCode.Size = New System.Drawing.Size(121, 20)
-        Me.sCode.TabIndex = 0
+        Me.SalaryGrade.Border.Class = "TextBoxBorder"
+        Me.SalaryGrade.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.SalaryGrade.Enabled = False
+        Me.SalaryGrade.FocusHighlightEnabled = True
+        Me.SalaryGrade.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.SalaryGrade.Location = New System.Drawing.Point(178, 34)
+        Me.SalaryGrade.Name = "SalaryGrade"
+        Me.SalaryGrade.Size = New System.Drawing.Size(121, 20)
+        Me.SalaryGrade.TabIndex = 0
+        '
+        'TranchDescription
+        '
+        Me.TranchDescription.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.TranchDescription.Border.Class = "TextBoxBorder"
+        Me.TranchDescription.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.TranchDescription.Enabled = False
+        Me.TranchDescription.FocusHighlightEnabled = True
+        Me.TranchDescription.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.TranchDescription.Location = New System.Drawing.Point(178, 10)
+        Me.TranchDescription.Name = "TranchDescription"
+        Me.TranchDescription.Size = New System.Drawing.Size(121, 20)
+        Me.TranchDescription.TabIndex = 0
         '
         'dgvhidden
         '
         Me.dgvhidden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvhidden.Location = New System.Drawing.Point(193, 131)
+        Me.dgvhidden.Location = New System.Drawing.Point(193, 106)
         Me.dgvhidden.Name = "dgvhidden"
         Me.dgvhidden.Size = New System.Drawing.Size(27, 26)
         Me.dgvhidden.TabIndex = 16
         Me.dgvhidden.Visible = False
         '
+        'ButtonX2
+        '
+        Me.ButtonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.ButtonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.ButtonX2.Location = New System.Drawing.Point(301, 10)
+        Me.ButtonX2.Name = "ButtonX2"
+        Me.ButtonX2.Size = New System.Drawing.Size(22, 20)
+        Me.ButtonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.ButtonX2.TabIndex = 17
+        Me.ButtonX2.Text = "..."
+        '
+        'ButtonX3
+        '
+        Me.ButtonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.ButtonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.ButtonX3.Location = New System.Drawing.Point(301, 34)
+        Me.ButtonX3.Name = "ButtonX3"
+        Me.ButtonX3.Size = New System.Drawing.Size(22, 20)
+        Me.ButtonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.ButtonX3.TabIndex = 18
+        Me.ButtonX3.Text = "..."
+        '
+        'TranchID
+        '
+        Me.TranchID.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.TranchID.Border.Class = "TextBoxBorder"
+        Me.TranchID.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.TranchID.FocusHighlightEnabled = True
+        Me.TranchID.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.TranchID.Location = New System.Drawing.Point(49, 11)
+        Me.TranchID.Name = "TranchID"
+        Me.TranchID.Size = New System.Drawing.Size(25, 20)
+        Me.TranchID.TabIndex = 21
+        '
+        'SalaryGradeID
+        '
+        Me.SalaryGradeID.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.SalaryGradeID.Border.Class = "TextBoxBorder"
+        Me.SalaryGradeID.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.SalaryGradeID.FocusHighlightEnabled = True
+        Me.SalaryGradeID.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.SalaryGradeID.Location = New System.Drawing.Point(49, 34)
+        Me.SalaryGradeID.Name = "SalaryGradeID"
+        Me.SalaryGradeID.Size = New System.Drawing.Size(25, 20)
+        Me.SalaryGradeID.TabIndex = 22
+        '
         'frmAddEdit1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1604, 591)
+        Me.ClientSize = New System.Drawing.Size(1748, 591)
         Me.ControlBox = False
         Me.Controls.Add(Me.PanelEx3)
         Me.Controls.Add(Me.PanelEx2)
@@ -3322,10 +3359,8 @@ Partial Class frmAddEdit1
     Friend WithEvents LabelX9 As DevComponents.DotNetBar.LabelX
     Friend WithEvents TextBoxX2 As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents PanelEx3 As DevComponents.DotNetBar.PanelEx
-    Friend WithEvents cmbSTranch As ComboBox
-    Friend WithEvents LabelX10 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX11 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents sCode As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents TranchDescription As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents LabelX20 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX19 As DevComponents.DotNetBar.LabelX
     Friend WithEvents s8 As DevComponents.DotNetBar.Controls.TextBoxX
@@ -3343,6 +3378,10 @@ Partial Class frmAddEdit1
     Friend WithEvents s2 As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents LabelX12 As DevComponents.DotNetBar.LabelX
     Friend WithEvents s1 As DevComponents.DotNetBar.Controls.TextBoxX
-    Friend WithEvents sDescription As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents SalaryGrade As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents dgvhidden As DataGridView
+    Friend WithEvents SalaryGradeID As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents TranchID As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents ButtonX3 As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents ButtonX2 As DevComponents.DotNetBar.ButtonX
 End Class

@@ -13,7 +13,7 @@ Public Class frmSelectionList
     End Property
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        LoadToForm()
+        LoadtoForm()
         Me.Dispose()
     End Sub
     Sub LoadtoForm()
@@ -25,7 +25,12 @@ Public Class frmSelectionList
                 Case "Educ Attain"
                     LookUpContent = dgv.CurrentRow.Cells(1).Value
                     LookUpContentID = Val(dgv.CurrentRow.Cells(3).Value)
-
+                Case "Tranch"
+                    LookUpContent = dgv.CurrentRow.Cells(1).Value
+                    LookUpContentID = Val(dgv.CurrentRow.Cells(0).Value)
+                Case "Salary Grade"
+                    LookUpContent = dgv.CurrentRow.Cells(2).Value
+                    LookUpContentID = Val(dgv.CurrentRow.Cells(0).Value)
             End Select
             Me.Dispose()
         Catch ex As Exception
@@ -73,8 +78,6 @@ Public Class frmSelectionList
 
 
     Private Sub frmSelectionList_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-        PopulateList()
-        txtSearch.Focus()
 
     End Sub
 
@@ -92,12 +95,27 @@ Public Class frmSelectionList
                 param.Add("SearchText", Me.txtSearch.Text)
                 Dim list As List(Of Rates) = MySqlConn.Query(Of Rates)("PayrollView", param, commandType:=CommandType.StoredProcedure).ToList()
                 dgv.DataSource = list
+            Case "Tranch"
+                Dim param As DynamicParameters = New DynamicParameters
+                param.Add("LibraryToLoad", "Tranch")
+                param.Add("SearchText", "First Tranche")
+                Dim list As List(Of Tranch) = MySqlConn.Query(Of Tranch)("PayrollView", param, commandType:=CommandType.StoredProcedure).ToList()
+                dgv.DataSource = list
+            Case "Salary Grade"
+                Dim param As DynamicParameters = New DynamicParameters
+                param.Add("LibraryToLoad", "tsalarygrades")
+                param.Add("SearchText", Me.txtSearch.Text)
+                Dim list As List(Of tSalaryGrade) = MySqlConn.Query(Of tSalaryGrade)("PayrollView", param, commandType:=CommandType.StoredProcedure).ToList()
+                dgv.DataSource = list
+
 
         End Select
         FormatDataGridView()
     End Sub
 
     Private Sub frmSelectionList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PopulateList()
+        txtSearch.Focus()
 
     End Sub
 

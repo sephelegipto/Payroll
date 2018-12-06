@@ -111,13 +111,12 @@ Public Class frmAddEdit1
                     End With
                     MySqlConn.Execute("spDepartmentsCollegesAddOREdit", param, commandType:=CommandType.StoredProcedure)
                 Case "Salary Grades"
-                    Dim key As String = DirectCast(cmbSTranch.SelectedItem, KeyValuePair(Of String, String)).Key
+
                     With param
                         .Add("AESwitch", Me.PrimaryKey)
                         .Add("LibraryToAddEdit", "Add Salary Grade")
-                        .Add("GradeCode", sCode.Text.Trim)
-                        .Add("GradeDescription", sDescription.Text.Trim)
-                        .Add("TranchID", key)
+                        .Add("TranchID", TranchID.Text.Trim)
+                        .Add("SalaryGradeID", SalaryGradeID.Text.Trim)
                         .Add("Step1", s1.Text.Trim)
                         .Add("Step2", s2.Text.Trim)
                         .Add("Step3", s3.Text.Trim)
@@ -205,13 +204,13 @@ Public Class frmAddEdit1
                     MySqlConn.Execute("spDepartmentsCollegesAddOREdit", param, commandType:=CommandType.StoredProcedure)
 
                 Case "Salary Grades"
-                    Dim key As String = DirectCast(cmbSTranch.SelectedItem, KeyValuePair(Of String, String)).Key
+
                     With param
-                        .Add("AESwitch", Me.PrimaryKey)
+
+                        .Add("AESwitch", PrimaryKey)
                         .Add("LibraryToAddEdit", "Edit Salary Grade")
-                        .Add("GradeCode", sCode.Text.Trim)
-                        .Add("GradeDescription", sDescription.Text.Trim)
-                        .Add("TranchID", key)
+                        .Add("TranchID", TranchID.Text.Trim)
+                        .Add("SalaryGradeID", SalaryGradeID.Text.Trim)
                         .Add("Step1", s1.Text.Trim)
                         .Add("Step2", s2.Text.Trim)
                         .Add("Step3", s3.Text.Trim)
@@ -220,6 +219,7 @@ Public Class frmAddEdit1
                         .Add("Step6", s6.Text.Trim)
                         .Add("Step7", s7.Text.Trim)
                         .Add("Step8", s8.Text.Trim)
+
                     End With
                     MySqlConn.Execute("PayrollAddEditSalaryGrade", param, commandType:=CommandType.StoredProcedure)
                 Case "Tranch"
@@ -308,5 +308,29 @@ Public Class frmAddEdit1
 
     Private Sub cmbMonth_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMonth.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub btnSelIncome_Click(sender As Object, e As EventArgs) Handles btnSelIncome.Click
+
+    End Sub
+
+    Private Sub ButtonX2_Click(sender As Object, e As EventArgs) Handles ButtonX2.Click
+        frmSelectionList.CallingForm = "Tranch"
+        frmSelectionList.Text = "Tranch Lookup"
+        frmSelectionList.ShowDialog()
+        TranchDescription.Text = LookUpContent
+        TranchID.Text = LookUpContentID
+        LookUpContent = ""
+        LookUpContentID = 0
+    End Sub
+
+    Private Sub ButtonX3_Click(sender As Object, e As EventArgs) Handles ButtonX3.Click
+        frmSelectionList.CallingForm = "Salary Grade"
+        frmSelectionList.Text = "Salary Grade Lookup"
+        frmSelectionList.ShowDialog()
+        SalaryGrade.Text = LookUpContent
+        SalaryGradeID.Text = LookUpContentID
+        LookUpContent = ""
+        LookUpContentID = 0
     End Sub
 End Class

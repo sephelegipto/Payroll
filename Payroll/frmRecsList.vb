@@ -98,8 +98,8 @@ Public Class frmRecsList
                 dgv.Columns(0).Visible = False
                 dgv.Columns(1).Width = 100
                 dgv.Columns(2).Width = 175
+                dgv.Columns(11).Visible = False
                 dgv.Columns(12).Visible = False
-                dgv.Columns(13).Visible = False
                 dgv.Width = 1200
             Case "Incomes", "Deductions", "Designations"
                 dgv.Columns(0).Visible = False
@@ -115,7 +115,7 @@ Public Class frmRecsList
                 dgv.Columns(0).Visible = 100
                 dgv.Columns(1).Width = 325
                 dgv.Columns(2).Width = 250
-                dgv.Columns(3).Visible = False
+         
             Case "Pay-Periods"
                 dgv.Columns(0).Visible = False
                 dgv.Columns(1).Width = 105
@@ -345,8 +345,8 @@ Public Class frmRecsList
                             frmAddEdit1.PanelEx3.Visible = True
                             frmAddEdit1.PanelEx3.Left = 7
                             frmAddEdit1.PanelEx3.Top = 7
-                            frmAddEdit1.sCode.Text = dgv.CurrentRow.Cells(1).Value
-                            frmAddEdit1.sDescription.Text = dgv.CurrentRow.Cells(2).Value
+                            frmAddEdit1.TranchDescription.Text = dgv.CurrentRow.Cells(1).Value
+                            frmAddEdit1.SalaryGrade.Text = dgv.CurrentRow.Cells(2).Value
                             ExecuteSQLStatement("SELECT * FROM vtranch", dgvhidden)
                             Dim comboSource As New Dictionary(Of String, String)()
                             Dim count As Integer = 0
@@ -354,19 +354,18 @@ Public Class frmRecsList
                                 comboSource.Add(dgvhidden.Rows(j).Cells(0).Value.ToString, dgvhidden.Rows(j).Cells(1).Value.ToString)
                                 count += 1
                             Next
-                            frmAddEdit1.cmbSTranch.DataSource = New BindingSource(comboSource, Nothing)
-                            frmAddEdit1.cmbSTranch.DisplayMember = "Value"
-                            frmAddEdit1.cmbSTranch.ValueMember = "Key"
-                            frmAddEdit1.cmbSTranch.SelectedValue = dgv.CurrentRow.Cells(12).Value
-                            frmAddEdit1.s1.Text = dgv.CurrentRow.Cells(4).Value
-                            frmAddEdit1.s2.Text = dgv.CurrentRow.Cells(5).Value
-                            frmAddEdit1.s3.Text = dgv.CurrentRow.Cells(6).Value
-                            frmAddEdit1.s4.Text = dgv.CurrentRow.Cells(7).Value
-                            frmAddEdit1.s5.Text = dgv.CurrentRow.Cells(8).Value
-                            frmAddEdit1.s6.Text = dgv.CurrentRow.Cells(9).Value
-                            frmAddEdit1.s7.Text = dgv.CurrentRow.Cells(10).Value
-                            frmAddEdit1.s8.Text = dgv.CurrentRow.Cells(11).Value
-                            frmAddEdit1.Width = 450
+
+                            frmAddEdit1.s1.Text = dgv.CurrentRow.Cells(3).Value
+                            frmAddEdit1.s2.Text = dgv.CurrentRow.Cells(4).Value
+                            frmAddEdit1.s3.Text = dgv.CurrentRow.Cells(5).Value
+                            frmAddEdit1.s4.Text = dgv.CurrentRow.Cells(6).Value
+                            frmAddEdit1.s5.Text = dgv.CurrentRow.Cells(7).Value
+                            frmAddEdit1.s6.Text = dgv.CurrentRow.Cells(8).Value
+                            frmAddEdit1.s7.Text = dgv.CurrentRow.Cells(9).Value
+                            frmAddEdit1.s8.Text = dgv.CurrentRow.Cells(10).Value
+                            frmAddEdit1.TranchID.Text = dgv.CurrentRow.Cells(11).Value
+                            frmAddEdit1.SalaryGradeID.Text = dgv.CurrentRow.Cells(12).Value
+                            frmAddEdit1.Width = 400
                             frmAddEdit1.Height = 400
                             frmAddEdit1.btnSave.Top = 300
                             frmAddEdit1.btnCancel.Top = 300
@@ -424,7 +423,7 @@ Public Class frmRecsList
                 frmAddEdit1.panGeneral2.Visible = True
                 frmAddEdit1.panGeneral2.Left = 6
                 frmAddEdit1.panGeneral2.Top = 6
-                frmAddEdit1.Width = 450
+                frmAddEdit1.Width = 400
                 frmAddEdit1.Height = 185
                 frmAddEdit1.btnSave.Top = 85
                 frmAddEdit1.btnCancel.Top = 85
@@ -457,8 +456,8 @@ Public Class frmRecsList
     Sub NewRecord()
         FormatAddEditForm()
 
-        If dgv.Rows.Count > 0 Then
-            Select Case sFormText
+
+        Select Case sFormText
                 Case "Positions", "Departments", "Salary Grades", "Pay-Periods", "Rates", "Incomes", "Deductions",
                      "PhilHealth Contribution Schedule", "GSIS Contribution Schedule", "Monthly Witholding Tax",
                      "Yearly Income Tax", "Tranch", "Colleges"
@@ -505,6 +504,7 @@ Public Class frmRecsList
                             frmAddEdit1.btnSave.Top = 300
                             frmAddEdit1.btnCancel.Top = 300
                             frmAddEdit1.lbl.Text = "Salary Grades"
+
                             ExecuteSQLStatement("SELECT * FROM vtranch", dgvhidden)
                             Dim comboSource As New Dictionary(Of String, String)()
                             Dim count As Integer = 0
@@ -512,9 +512,7 @@ Public Class frmRecsList
                                 comboSource.Add(dgvhidden.Rows(j).Cells(0).Value.ToString, dgvhidden.Rows(j).Cells(1).Value.ToString)
                                 count += 1
                             Next
-                            frmAddEdit1.cmbSTranch.DataSource = New BindingSource(comboSource, Nothing)
-                            frmAddEdit1.cmbSTranch.DisplayMember = "Value"
-                            frmAddEdit1.cmbSTranch.ValueMember = "Key"
+
 
                     End Select
                     frmAddEdit1.ShowDialog()
@@ -527,9 +525,7 @@ Public Class frmRecsList
                     frmAddEditEmployee.tEmployeeIDNo.Text = dgv.CurrentRow.Cells(1).Value
                     frmAddEditEmployee.ShowDialog()
             End Select
-        Else
-            MsgBox("No record to be edited.", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Edit")
-        End If
+
 
         reload()
     End Sub

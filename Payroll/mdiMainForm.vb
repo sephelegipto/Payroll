@@ -94,13 +94,13 @@ Public Class mdiMainForm
         frm.LoadTable = "Salary Grades"
         frm.FindTitle = "Salary Grade"
         frm.MdiParent = Me
-        frm.Size = New System.Drawing.Size(1200, 456)
-        frm.PanelEx1.Size = New System.Drawing.Size(1185, 56)
-        frm.RibbonBar4.Location = New Point(1126, 3)
-        frm.RibbonBar3.Location = New Point(1066, 3)
-        frm.RibbonBar2.Location = New Point(958, 3)
-        frm.RibbonBar1.Location = New Point(798, 3)
-        frm.RibbonBar5.Location = New Point(687, 4)
+        frm.Size = New System.Drawing.Size(1100, 456)
+        frm.PanelEx1.Size = New System.Drawing.Size(1085, 56)
+        frm.RibbonBar4.Location = New Point(1026, 3)
+        frm.RibbonBar3.Location = New Point(966, 3)
+        frm.RibbonBar2.Location = New Point(858, 3)
+        frm.RibbonBar1.Location = New Point(698, 3)
+        frm.RibbonBar5.Location = New Point(587, 4)
         bmRanks.Enabled = False
         frm.Show()
     End Sub
